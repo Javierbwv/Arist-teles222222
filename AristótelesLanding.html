@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ética a Nicómaco - Aristóteles</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            padding: 20px;
+            text-align: center;
+            color: #ecf0f1;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ecf0f1;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        h1, h2 {
+            color: #3498db;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .books {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+        .book-card {
+            background-color: #3498db;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            cursor: pointer;
+            width: 33%;
+            flex: 0 0 auto;
+            transition: transform 0.3s ease;
+        }
+        .book-card:hover {
+            transform: scale(1.05);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #3498db;
+            cursor: pointer;
+        }
+        .arrow-left {
+            left: 10px;
+        }
+        .arrow-right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: #e74c3c;">Explora "Ética a Nicómaco" de Aristóteles</h1>
+    </header>
+    <section>
+        <p>Descubre la obra maestra de Aristóteles sobre ética y filosofía. Navega a través de los libros para entender sus enseñanzas atemporales.</p>
+        <div class="arrow arrow-left" onclick="scrollBooks(-1)">❮</div>
+        <div class="books" id="book-container">
+            <!-- Tarjetas para los 10 libros -->
+            <div class="book-card">
+                <h2>Libro I: La Felicidad</h2>
+                <p>En este libro, Aristóteles explora el concepto de la felicidad como el fin último de la vida.</p>
+            </div>
+            <div class="book-card">
+                <h2>Libro II: La Virtud Ética</h2>
+                <p>La virtud ética y su relación con la felicidad son temas centrales en este libro.</p>
+            </div>
+            <!-- Repite el patrón para los demás libros -->
+        </div>
+        <div class="arrow arrow-right" onclick="scrollBooks(1)">❯</div>
+        <img src="https://i.imgur.com/4W7HOcm.jpg" alt="Aristóteles" />
+    </section>
+    <footer>
+        <p>Contacto | Términos y Condiciones | Política de Privacidad</p>
+    </footer>
+
+    <script>
+        const bookContainer = document.getElementById('book-container');
+        let currentIndex = 0;
+
+        function scrollBooks(direction) {
+            const cardWidth = document.querySelector('.book-card').offsetWidth + 10;
+            currentIndex = Math.max(0, Math.min(currentIndex + direction, bookContainer.children.length - 3));
+            bookContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+    </script>
+</body>
+</html>
